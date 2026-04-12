@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LOUIS VUITTON — Official Website</title>
+  <meta name="description" content="Explore the world of Louis Vuitton. Shop luxury handbags, ready-to-wear, shoes, accessories, and more."/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Animated Grid -->
+  <canvas id="grid-canvas"></canvas>
+
+  <!-- Hero Images -->
+  <div id="hero">
+    <div id="img-base"></div>
+    <div id="img-reveal"></div>
+  </div>
+
+  <!-- Spotlight Ring -->
+  <div id="spotlight"></div>
+
+  <!-- ═══════════════════════════════════════
+       UI OVERLAY
+       ═══════════════════════════════════════ -->
+  <div id="ui">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div id="brand-logo" class="anim-fade-in d1">LOUIS VUITTON</div>
+
+      <div style="display:flex;align-items:center;">
+        <nav class="nav-links anim-fade-in d2">
+          <a href="#" id="nav-women">Women</a>
+          <a href="#" id="nav-men">Men</a>
+          <a href="#" id="nav-collections">Collections</a>
+          <a href="#" id="nav-stories">Stories</a>
+        </nav>
+
+        <div class="nav-icons anim-fade-in d3">
+          <a href="#" id="btn-search" aria-label="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </a>
+          <a href="#" id="btn-cart" aria-label="Shopping Bag">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-badge">2</span>
+          </a>
+        </div>
+
+        <button class="hamburger anim-fade-in d2" id="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#">Women</a>
+      <a href="#">Men</a>
+      <a href="#">Collections</a>
+      <a href="#">Stories</a>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <span class="collection-tag anim-fade-up d3">SS — 2026</span>
+      <h1 class="hero-title anim-fade-up d4">The Art of<br/>Travel</h1>
+      <p class="hero-subtitle anim-fade-up d5">A journey through craftsmanship,<br/>heritage, and timeless elegance.</p>
+      <a href="#" class="cta-btn anim-fade-up d6" id="cta-explore">
+        Explore
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <!-- Side Label -->
+    <div class="side-label anim-fade-in d5">Maison Louis Vuitton — Paris, 1854</div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="bottom-left anim-fade-in d4">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Complimentary Shipping Worldwide
+      </div>
+
+      <div id="socials" class="anim-fade-in d4">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://x.com" target="_blank" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://pinterest.com" target="_blank" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       SEARCH OVERLAY
+       ═══════════════════════════════════════ -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-close" id="search-close" aria-label="Close Search">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="search-inner">
+      <label for="search-input">What are you looking for?</label>
+      <input type="text" id="search-input" placeholder="Search collections, products..." autocomplete="off"/>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       CART DRAWER
+       ═══════════════════════════════════════ -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2>Your Bag <span class="cart-count" id="cart-count">(2)</span></h2>
+      <button class="cart-close" id="cart-close" aria-label="Close Cart">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-item" data-id="1">
+        <div class="cart-item-img">LV</div>
+        <div class="cart-item-details">
+          <span class="cart-item-name">Keepall Bandoulière 50</span>
+          <span class="cart-item-variant">Monogram Eclipse — One Size</span>
+          <span class="cart-item-price">€2,370.00</span>
+          <button class="cart-item-remove">Remove</button>
+        </div>
+      </div>
+      <div class="cart-item" data-id="2">
+        <div class="cart-item-img">LV</div>
+        <div class="cart-item-details">
+          <span class="cart-item-name">LV Trainer Sneaker</span>
+          <span class="cart-item-variant">Damier — Size 42</span>
+          <span class="cart-item-price">€1,090.00</span>
+          <button class="cart-item-remove">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-price" id="cart-total">€3,460.00</span>
+      </div>
+      <button class="cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="page-loader">
+    <span class="loader-text">LOUIS VUITTON</span>
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
